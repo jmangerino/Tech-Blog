@@ -3,17 +3,57 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
-    const body = req.body;
-  
     try {
-      const newComment = await Comment.create({
-        ...body,
-        userId: req.session.userId,
-      });
-      res.json(newComment);
+        const commentData = await Comment.create({ 
+            ...req.body, 
+            user_id: req.session.user_id
+        });
+        
+        if (!commentData) {
+            res.status(400).json({ message: "Error with creating the Comment" });
+        } else {
+            res.status(200).json(commentData);
+        }
     } catch (err) {
-      res.status(500).json(err);
+        res.status(500).json(err);
     }
-  });
+});
 
-  module.exports = router;
+router.put('/', withAuth, async (req, res) => {
+    try {
+        const commentData = await Comment.update({
+            where: {
+                id: req.params.id,
+            },
+        });
+
+        if (!commentData) {
+            res.status(400).json({ message: "error with updating the Comment" });
+        } else {
+            res.status(200).json(commentData);
+        };
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.delete('/', withAuth, async (req, res) => {
+    try {
+        const commentData = await Comment.destroy({
+            where: {
+                id: req.params.id,
+                user_id: req.session.user_id,
+            }
+        });
+
+        if (!commentData) {
+            res.status(400).json({ message: "Error deleting the Comment" });
+        } else {
+            res.status(200).json(commentData);
+        };
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;

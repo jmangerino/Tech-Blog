@@ -1,49 +1,19 @@
-<div class="flex flex-row justify-center">
-  <div class="flex-col h-60 pt-20 pr-8">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="login-form">
-      <div class="mb-4">
-        <p class="flex justify-center  text-bg-slate-800 text-2xl mb-2">Sign In</p>
-        <label class=" text-gray-700 text-sm font-bold mb-2" for="email">
-          Email
-        </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email-login" type="text" placeholder="Email">
-      </div>
-      <div class="mb-6">
-        <label class=" text-gray-700 text-sm font-bold mb-2" for="password">
-          Password
-        </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password-login" type="password" placeholder="******************">
-      </div>
-      <div class="flex items-center justify-center">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" id="submit-login">
-          Sign In
-        </button>
-      </div>
-    </form>
+<div class="card">
+  <div class="card-header">
+    <h2>Login</h2>
   </div>
-  <div class="flex-col h-60 pt-20 pl-8">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" id="signup-form">
-      <div class="mb-4">
-        <p class="flex justify-center  text-bg-slate-800 text-2xl  mb-2">SignUp</p>
-        <label class=" text-gray-700 text-sm font-bold mb-2" for="email">
-          Email
-        </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email-signup" type="text" placeholder="Email">
-      </div>
-      <div class="mb-6">
-        <label class=" text-gray-700 text-sm font-bold mb-2" for="password">
-          Password
-        </label>
-        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password-signup" type="password" placeholder="******************">
-      </div>
-      <div class="flex items-center justify-center">
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" id="submit-signup">
-          Sign Up
-        </button>
-      </div>
-    </form>
-  </div>
+  <form id="login-form" class="card-body">
+    <div>
+      <label for="username-input-login">Username</label>
+      <input type="text" id="username-input-login" />
+    </div>
+    <div>
+      <label for="password-input-login" class="form-label">Password</label>
+      <input type="password" id="password-input-login" />
+    </div>
+    <button type="submit" id="login-btn" class="btn">Login!</button>
+    <a type="button" href="/signup">Sign up instead</a>
+  </form>
 </div>
-  
 
-<script src="./js/login.js"></script>
+<script src="/js/login.js"></script>

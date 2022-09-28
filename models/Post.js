@@ -13,10 +13,10 @@ Post.init(
         },
         title: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: false
         },
-        post_content: {
-            type: DataTypes.TEXT,
+        text: {
+            type: DataTypes.STRING,
             allowNull: false,
         },
         date_created: {
@@ -39,6 +39,6 @@ Post.init(
         underscored: true,
         modelName: 'post',
     }
-);
+)
 
 module.exports = Post;
